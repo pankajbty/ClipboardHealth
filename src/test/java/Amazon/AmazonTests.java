@@ -1,12 +1,10 @@
 package Amazon;
 
 import drivers.DriverMethods;
+import org.testng.annotations.*;
 import pages.AmazonHomePage;
 import pages.AmazonItemPage;
 import pages.AmazonTelevisionPage;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -18,9 +16,10 @@ public class AmazonTests extends DriverMethods{
     static AmazonItemPage amazonItemPage = new AmazonItemPage();
 
     @BeforeTest
-    public void setUp() {
+    @Parameters({"browser"})
+    public void setUp(@Optional String browser) {
         LOGGER.log(Level.INFO, "Launching Browser");
-        openBrowser("https://www.amazon.in/");
+        openBrowser(browser, "https://www.amazon.in/");
     }
 
     @Test

@@ -9,9 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -23,15 +27,26 @@ public class DriverMethods {
     public final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     // Opening browser here in headless mode
-    public static void openBrowser(String url) {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wdw = new WebDriverWait(driver, 20L);
-        driver.get(url);
-        driver.manage().window().maximize();
+    public static void openBrowser(String browser, String url) {
+        if (browser.equals("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("headless");
+            driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            wdw = new WebDriverWait(driver, 20L);
+            driver.get(url);
+            driver.manage().window().maximize();
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("headless");
+            driver = new FirefoxDriver(options);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            wdw = new WebDriverWait(driver, 20L);
+            driver.get(url);
+            driver.manage().window().maximize();
+        }
     }
 
     public static void navigateToUrl(String url) {
