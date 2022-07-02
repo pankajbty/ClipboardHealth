@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Testing Amazon Web Application">
+    <!-- Here trying to run the test in parallel with 2  instances -->
     <test name="Regression" parallel="tests" thread-count="2">
+        <!-- These are the parameter for which browser to use -->
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="Amazon.AmazonTests"/>

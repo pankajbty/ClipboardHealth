@@ -10,7 +10,7 @@ This Will create a folder in you local with name ClipboardHealth with the framew
 # External Dependencies
 After this we have to open the project in IntelliJ IDEA
 Make Sure you have the Following things:- 
-1. Right version of JAVA for this from Java 8 to Java 11
+1. Right version of JAVA for this from Java 8 or Java 11
 2. Have Latest Maven
 3. Latest Chrome Driver version
 
