@@ -14,8 +14,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 
 import java.util.Iterator;
 import java.util.Set;
