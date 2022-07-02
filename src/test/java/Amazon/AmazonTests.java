@@ -42,6 +42,12 @@ public class AmazonTests extends DriverMethods{
         switchWindow(parent);
     }
 
+    @Test
+    public void veridyAboutItemTestToShowParallelRun() {
+        amazonHomePage.homePageHamburgerMenuClick();
+        amazonHomePage.validateShopByDepartment();
+    }
+
     @AfterTest
     public void tearDown() {
         LOGGER.log(Level.INFO, "Quiting Browser");
