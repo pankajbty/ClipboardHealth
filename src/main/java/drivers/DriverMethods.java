@@ -31,20 +31,16 @@ public class DriverMethods {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("headless");
             driver = new ChromeDriver(options);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            wdw = new WebDriverWait(driver, 20L);
-            driver.get(url);
-            driver.manage().window().maximize();
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("headless");
             driver = new FirefoxDriver(options);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            wdw = new WebDriverWait(driver, 20L);
-            driver.get(url);
-            driver.manage().window().maximize();
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wdw = new WebDriverWait(driver, 20L);
+        driver.get(url);
+        driver.manage().window().maximize();
     }
 
     public static void navigateToUrl(String url) {
