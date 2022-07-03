@@ -28,4 +28,13 @@ We can use the pom.xml dependecies.
 3. Inside docker compose folder run docker-compose -f docker-compose.yml up
 4. After the docker is up go to testng.xml file athen right click and run the file.
 
+
+# Framework explanation
+1. I have design it in a modular way, using Page object model approch
+2. In the drivers package i have defined the Driver related methods and the wrraper of the selenium methods
+3. In the pages package i have defined the different class for each page.
+4. In the Amazon package i have defined the tests which is getting executed.  
+5. In docker-compose i have defined the docker-compose.yml file
+
+
 # SUCCESS
