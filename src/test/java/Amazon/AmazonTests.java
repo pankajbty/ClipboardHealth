@@ -6,6 +6,7 @@ import pages.AmazonHomePage;
 import pages.AmazonItemPage;
 import pages.AmazonTelevisionPage;
 
+import java.net.MalformedURLException;
 import java.util.Iterator;
 import java.util.logging.Level;
 
@@ -17,9 +18,11 @@ public class AmazonTests extends DriverMethods{
 
     @BeforeTest
     @Parameters({"browser"})
-    public void setUp(@Optional String browser) {
+    public void setUp(@Optional String browser) throws MalformedURLException {
         LOGGER.log(Level.INFO, "Launching Browser");
         openBrowser(browser, "https://www.amazon.in/");
+        // This is used for open the browser in Selenium grid using docker
+//        openRemoteBrowser("https://www.amazon.in/");
     }
 
     @Test

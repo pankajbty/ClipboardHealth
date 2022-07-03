@@ -1,5 +1,7 @@
 package drivers;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverMethods {
     public static WebDriver driver;
+    public static RemoteWebDriver remoteDriver;
     public static WebDriverWait wdw;
     public final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -41,6 +46,15 @@ public class DriverMethods {
         wdw = new WebDriverWait(driver, 20L);
         driver.get(url);
         driver.manage().window().maximize();
+    }
+
+    // Opening browser in selenium grid
+    public static void openRemoteBrowser(String url) throws MalformedURLException {
+        DesiredCapabilities dr = DesiredCapabilities.chrome();
+        dr.setBrowserName("chrome");
+        remoteDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dr);
+        remoteDriver.get(url);
+        remoteDriver.manage().window().maximize();
     }
 
     public static void navigateToUrl(String url) {
