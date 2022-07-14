@@ -6,7 +6,7 @@
         <!-- These are the parameter for which browser to use -->
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="Amazon.AmazonTests"/>
+            <class name="Amazon.Test1"/>
         </classes>
     </test>
 </suite>
